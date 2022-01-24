@@ -1,4 +1,4 @@
-LAB - Markdown Sample
+LAB - HEllo World Sample
 =====================
 
 Sample workshop content using Markdown formatting for pages.
