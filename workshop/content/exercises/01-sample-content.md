@@ -10,24 +10,24 @@ Included below are some tests and examples of page formatting using Markdown.
 echo "standard code block"
 ```
 
-#### Click text to execute
+#### Click text to Hello world
 
-```execute
-echo "execute in terminal 1"
+```Hello world
+echo "Hello world in terminal 1"
 ```
 
-#### Click text to execute (with target)
+#### Click text to Hello world (with target)
 
-```execute-1
-echo "execute in terminal 1"
+```Hello world-1
+echo "Hello world in terminal 1"
 ```
 
-```execute-2
-echo "execute in terminal 2"
+```Hello world-2
+echo "Hello world in terminal 2"
 ```
 
-```execute-all
-echo "execute in all terminals"
+```Hello world-all
+echo "Hello world in all terminals"
 ```
 
 #### Click text to copy
@@ -44,11 +44,11 @@ echo "copy text to buffer"
 
 #### Interrupt command
 
-```execute
+```Hello world
 sleep 3600
 ```
 
-```execute
+```Hello world
 <ctrl-c>
 ```
 
