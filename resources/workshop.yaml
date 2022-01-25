@@ -10,7 +10,7 @@ spec:
   duration: 15m
   url: https://github.com/chdubois/lab-hello-world
   content:
-    #image: quay.io/eduk8s/lab-markdown-sample:master
+    image: quay.io/eduk8s/lab-markdown-sample:master
     files: github.com/chdubois/lab-hello-world
   session:
     namespaces:
