@@ -12,21 +12,21 @@ echo "standard code block"
 
 #### Click text to Hello world
 
-```Hello world
+```execute
 echo "Hello world in terminal 1"
 ```
 
 #### Click text to Hello world (with target)
 
-```Hello world-1
+```execute-1
 echo "Hello world in terminal 1"
 ```
 
-```Hello world-2
+```execute-2
 echo "Hello world in terminal 2"
 ```
 
-```Hello world-all
+```execute-all
 echo "Hello world in all terminals"
 ```
 
@@ -44,11 +44,11 @@ echo "copy text to buffer"
 
 #### Interrupt command
 
-```Hello world
+```execute
 sleep 3600
 ```
 
-```Hello world
+```execute
 <ctrl-c>
 ```
 
@@ -68,4 +68,4 @@ ingress_protocol: {{ ingress_protocol }}
 
 #### Web site links
 
-[External](https://github.com/eduk8s)
+[Manage Clusters](https://tanzuemea.tmc.cloud.vmware.com/clusters)
