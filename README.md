@@ -15,7 +15,7 @@ This will deploy a training portal hosting just this workshop. To get the
 URL for accessing the training portal run:
 
 ```
-kubectl get trainingportal/lab-markdown-sample
+kubectl get trainingportal/lab-hello-world-sample
 ```
 
 The training portal is configured to allow anonymous access. For your own
