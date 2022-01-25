@@ -1,7 +1,7 @@
 apiVersion: training.eduk8s.io/v1alpha2
 kind: Workshop
 metadata:
-  name: lab-world-sample
+  name: lab-hello-world-sample
 spec:
   title: Hello World Sample
   description: A sample workshop using Markdown
