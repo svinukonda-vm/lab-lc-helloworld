@@ -3,15 +3,15 @@ kind: Workshop
 metadata:
   name: lab-lc-helloworld
 spec:
-  title: Hello! from Eknath
-  description: A sample workshop using Markdown
+  title: Hello from Eknath
+  description: Workshop created to demo the workload creation in TKG
   vendor: eduk8s.io
   difficulty: beginner
   duration: 15m
   url: https://github.com/Eknathreddy09/lab-lc-helloworld
   content:
-    image: quay.io/eduk8s/lab-workshop-builder:master
-    files: github.com/Eknathreddy09/lab-lc-helloworld:lc-test
+     files: github.com/Eknathreddy09/lab-lc-helloworld:lc-test
+    #image: quay.io/eduk8s/lab-markdown-sample:master
   session:
     namespaces:
       budget: small

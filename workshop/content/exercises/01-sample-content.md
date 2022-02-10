@@ -19,11 +19,11 @@ hostname
 #### Click text to Hello world (with target)
 
 ```execute-1
-echo "Hello world in terminal 1"
+echo "Hello world from Eknath"
 ```
 
 ```execute-2
-echo "Hello world in terminal 2"
+echo "Hello world from Captain"
 ```
 
 ```execute-all
