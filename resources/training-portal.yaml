@@ -1,13 +1,13 @@
 apiVersion: training.eduk8s.io/v1alpha1
 kind: TrainingPortal
 metadata:
-  name: lab-hello-world-sample
+  name: lab-lc-helloworld
 spec:
   portal:
     registration:
       type: anonymous
   workshops:
-  - name: lab-hello-world-sample
+  - name: lab-lc-helloworld
     capacity: 10
     expires: 60m
     orphaned: 5m
