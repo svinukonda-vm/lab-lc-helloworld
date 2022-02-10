@@ -10,7 +10,7 @@ spec:
   duration: 15m
   url: https://github.com/Eknathreddy09/lab-lc-helloworld
   content:
-     files: github.com/Eknathreddy09/lab-lc-helloworld:lc-test
+     files: github.com/Eknathreddy09/lab-lc-helloworld?ref=lc-test
     #image: quay.io/eduk8s/lab-markdown-sample:master
   session:
     namespaces:
