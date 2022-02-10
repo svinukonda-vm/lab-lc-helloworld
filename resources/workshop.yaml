@@ -3,7 +3,7 @@ kind: Workshop
 metadata:
   name: lab-lc-helloworld
 spec:
-  title: Hello! from Eknath
+  title: Hello from Eknath
   description: A sample workshop using Markdown
   vendor: eduk8s.io
   difficulty: beginner
