@@ -11,7 +11,7 @@ spec:
   url: https://github.com/Eknathreddy09/lab-lc-helloworld
   content:
     image: quay.io/eduk8s/lab-workshop-builder:master
-    files: github.com/Eknathreddy09/lab-lc-helloworld
+    files: github.com/Eknathreddy09/lab-lc-helloworld:lc-test
   session:
     namespaces:
       budget: small
