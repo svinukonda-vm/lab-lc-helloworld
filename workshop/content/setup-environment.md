@@ -10,7 +10,6 @@ date
 hostname
 ```
 
-
 ```execute
 ping www.google.com
 ```

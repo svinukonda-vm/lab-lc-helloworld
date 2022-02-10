@@ -13,7 +13,7 @@ echo "standard code block"
 #### Click text to Hello world
 
 ```execute
-echo "Hello world in terminal 1"
+hostname
 ```
 
 #### Click text to Hello world (with target)
