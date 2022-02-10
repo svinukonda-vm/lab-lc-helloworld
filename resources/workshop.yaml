@@ -4,7 +4,7 @@ metadata:
   name: lab-lc-helloworld
 spec:
   title: Hello from Eknath
-  description: A sample workshop using Markdown
+  description: Workshop created to demo the workload creation in TKG
   vendor: eduk8s.io
   difficulty: beginner
   duration: 15m
