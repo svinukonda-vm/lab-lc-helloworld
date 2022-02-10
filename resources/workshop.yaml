@@ -10,8 +10,8 @@ spec:
   duration: 15m
   url: https://github.com/Eknathreddy09/lab-lc-helloworld
   content:
-    image: quay.io/eduk8s/lab-markdown-sample:master
-    files: https://github.com/Eknathreddy09/lab-lc-helloworld/workshop?ref=main
+    #image: quay.io/eduk8s/lab-markdown-sample:master
+    files: github.com/Eknathreddy09/lab-lc-helloworld?ref=main
   session:
     namespaces:
       budget: small
