@@ -1,22 +1,22 @@
-################ Just a test page #######################
+################ Still in progress, but you can still try #######################
 Author: Eknath Reddy
 
-This is an example page for exercises to be done for the workshop. You would remove this page, replace it with your own and then adjust the `workshop.yaml` and `modules.yaml` file to list your pages instead.
-
-In this example the pages which make up the core of the workshop content are placed in a sub directory. This is only done as a suggestion. You can place all pages at the same directory level if you wish.
-
-Included below are some tests and examples of page formatting using Markdown.
-
-#### Standard code block
-
-```
-echo "standard code block"
-```
-
-#### Click text to Hello world
+#### Click text to check Tanzu version
 
 ```execute
-hostname
+tanzu version
+```
+
+#### Click text to check Kubectl version
+
+```execute
+kubectl version
+```
+
+#### Click text to check TMC version
+
+```execute
+tmc version
 ```
 
 #### Click text to Hello world (with target)
