@@ -4,16 +4,4 @@ Pre requisites: Before proceeding with workshop, ensure the required tools are i
 date
 ```
 
-```execute
-tanzu version
-```
-
-```execute
-kubectl version
-```
-
-```execute
-tmc version
-```
-
 Are you good ? Then click on Start Workshop. 
