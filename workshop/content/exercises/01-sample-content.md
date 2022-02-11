@@ -1,6 +1,20 @@
 ################ Still in progress, but you can still try #######################
 Author: Eknath Reddy
 
+#### Click text to Hello world (with target)
+
+```execute-1
+echo "Hello from Eknath"
+```
+
+```execute-2
+echo "Hello from Captain"
+```
+
+```execute-all
+echo "Hello world in all terminals"
+```
+
 #### Click text to check Tanzu version
 
 ```execute
@@ -19,18 +33,22 @@ kubectl version
 tmc version
 ```
 
-#### Click text to Hello world (with target)
+#### Click text to check the Nodes
 
-```execute-1
-echo "Hello world from Eknath"
+```execute
+kubectl config get-contexts
 ```
 
-```execute-2
-echo "Hello world from Captain"
+#### Click text to check the Nodes
+
+```execute
+kubectl get nodes
 ```
 
-```execute-all
-echo "Hello world in all terminals"
+#### Click text to check the pods
+
+```execute
+kubectl get pods -A
 ```
 
 #### Click text to copy
@@ -39,20 +57,10 @@ echo "Hello world in all terminals"
 echo "copy text to buffer"
 ```
 
-#### Click text to copy (and edit)
-
-```copy-and-edit
-echo "copy text to buffer"
-```
-
 #### Interrupt command
 
 ```execute
 sleep 3600
-```
-
-```execute
-<ctrl-c>
 ```
 
 #### Variable interpolation
