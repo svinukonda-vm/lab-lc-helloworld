@@ -41,3 +41,7 @@ tmc cluster attach -g default -n test-tmcattach -m tkg-mgmttest-cluster -p Eknat
 Navigate to  TMC console > Clusters > click on clustername
 
 ![TMC Cluster console](images/TMC-5.png)
+
+```execute
+tmc cluster validate --kubeconfig ~/.kube/config-tkg
+```
