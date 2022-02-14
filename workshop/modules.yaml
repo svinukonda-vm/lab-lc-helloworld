@@ -6,7 +6,11 @@ modules:
         name: Setup Environment
         exit_sign: Start Workshop
     exercises/01-sample-content:
-        name: Sample Content
+        name: TKG workshop
+    exercises/02-tmc:
+        name: TMC workshop
+    exercises/03-tmc-policies:
+        name: TMC policies workshop
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop
