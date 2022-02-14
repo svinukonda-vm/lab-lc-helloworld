@@ -52,6 +52,8 @@ Leave to Default and click NEXT
 
 Install Package
 
+![TMC Cluster console](images/TMC-14.png) 
+
 ```execute
 kubectl get pods -n cert-manager
 ```
