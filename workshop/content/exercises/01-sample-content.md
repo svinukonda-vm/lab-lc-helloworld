@@ -79,8 +79,9 @@ tanzu cluster create {{ session_namespace }} -f /home/eduk8s/wc-config.yaml
 
 Meanwhile you can check the cluster creation logs in Terminal 2
 #### Click here to deploy workload cluster
-```execute
-tanzu cluster create {{ session_namespace }} -f /home/eduk8s/wc-config.yaml
+```execute-2
+podname=$(kubectl get pods -n capz-system -o=jsonpath={.items[0].metadata.name})
+kubectl logs $podname -n capz-system -c manager -f
 ```
 
 #### Variable interpolation
