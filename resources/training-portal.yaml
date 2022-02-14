@@ -9,5 +9,5 @@ spec:
   workshops:
   - name: lab-lc-helloworld
     capacity: 100
-    expires: 60m
+    expires: 120m
     orphaned: 5m
