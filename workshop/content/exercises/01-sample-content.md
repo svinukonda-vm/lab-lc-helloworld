@@ -78,11 +78,64 @@ tanzu cluster create {{ session_namespace }} -f /home/eduk8s/wc-config.yaml
 ```
 
 Meanwhile you can check the cluster creation logs in Terminal 2
-#### Click here to deploy workload cluster
+#### Click here to check the progress of workload creation from logs
 ```execute-2
 podname=$(kubectl get pods -n capz-system -o=jsonpath={.items[0].metadata.name})
 kubectl logs $podname -n capz-system -c manager -f
 ```
+
+#### Click here to check the deployed workload clusters 
+```execute
+tanzu cluster list
+```
+#### Get credentials and export the config file
+```execute
+tanzu cluster kubeconfig get {{ session_namespace }} --admin --export-file ~/.kube/config-tkg
+```
+#### Read the kubeconfig file
+```execute
+cat  ~/.kube/config-tkg
+```
+#### Click here to change the context from management cluster to workload
+```execute
+kubectl config use-context {{ session_namespace }}-admin@{{ session_namespace }} --kubeconfig /home/eduk8s/.kube/config-tkg
+```
+#### Verify the context
+```execute
+kubectl config get-contexts --kubeconfig /home/eduk8s/.kube/config-tkg
+```
+#### Check the nodes in workload cluster
+```execute
+kubectl get nodes -A --kubeconfig /home/eduk8s/.kube/config-tkg
+```
+#### Check the pods in workload cluster
+```execute
+kubectl get pods -A --kubeconfig /home/eduk8s/.kube/config-tkg
+```
+
+Deploy a test application in workload cluster
+
+#### Create namespace test-application in workload cluster which will be used to deploy an application
+```execute
+kubectl create ns test-application --kubeconfig /home/eduk8s/.kube/config-tkg
+```
+#### Check all the namespaces in workload cluster
+```execute
+kubectl get ns --kubeconfig /home/eduk8s/.kube/config-tkg
+```
+#### Create a deployment with 2 replicas
+```execute
+kubectl create deployment spring-deploy --port=8080 --image=eknath009/tbs-spring-image:3 --replicas=2 -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
+```
+#### Expose the deployment 
+```execute
+kubectl expose deployment spring-deploy --port=8080 --type=LoadBalancer -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
+```
+#### Collect the External IP and access the same in browser
+```execute
+kubectl get svc -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
+```
+
 
 #### Variable interpolation
 
