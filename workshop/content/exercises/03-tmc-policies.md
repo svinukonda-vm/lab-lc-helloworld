@@ -52,4 +52,10 @@ Leave to Default and click NEXT
 
 Install Package
 
+```execute
+kubectl get pods -n cert-manager
+```
+
+Navigate to TMC console > Catalog > Installed > check if the package (cert-manager.tanzu.vmware.com) is succeeded and healthy
+
 #### Install Harbor Package using TMC CLI: 
