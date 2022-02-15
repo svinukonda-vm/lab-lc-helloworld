@@ -11,7 +11,7 @@ modules:
         name: TMC workshop
     exercises/03-tmc-packageinstall:
         name: TMC Package Install
-    exercises/04-tmc-clustercreate:
+    exercises/04-tmc-clusterattach:
         name: TMC Cluster Creation
     exercises/05-tmc-clusterdelete:
         name: TMC Cluster Delete
