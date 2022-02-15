@@ -38,7 +38,6 @@ Below command should be showing the current context pointing to management clust
 ```execute
 kubectl config get-contexts
 ```
-Since this is demo workshop, we have deployed 1 control plane and 1 worker node, But it is highly recommended to deploy multiple control plane nodes in production environment. 
 
 #### Click text to check the Nodes
 
@@ -56,6 +55,9 @@ kubectl get pods -A
 
 ```copy
 echo "copy text to buffer"
+```
+```execute-2
+ssh -i ~/.ssh/creds 
 ```
 
 #### Click text to check tanzu management cluster
@@ -79,6 +81,7 @@ tanzu cluster create {{ session_namespace }} -f /home/eduk8s/wc-config.yaml
 
 Meanwhile you can check the cluster creation logs in Terminal 2
 #### Click here to check the progress of workload creation from logs
+
 ```execute-2
 podname=$(kubectl get pods -n capz-system -o=jsonpath={.items[0].metadata.name})
 kubectl logs $podname -n capz-system -c manager -f
