@@ -83,9 +83,9 @@ Meanwhile you can check the cluster creation logs in Terminal 2
 podname=$(kubectl get pods -n capz-system -o=jsonpath={.items[0].metadata.name})
 kubectl logs $podname -n capz-system -c manager -f
 ```
-##############################################################
-########### Wait for the cluster to get created ##############
-##############################################################
+############################################################
+########### Wait for the cluster to get created ############
+############################################################
 
 #### Click here to check the deployed workload clusters 
 ```execute
