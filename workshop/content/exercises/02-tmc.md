@@ -17,27 +17,29 @@ url: https://console.cloud.vmware.com/csp/gateway/discovery
 ![TMC Token](images/TMC-4.png)
 
 ```execute
-tmc login -n test-demoworkshop --no-configure
+tmc login -n partnerse-demo --no-configure
 ```
 
 ```execute
-tmc system context configure -l "log" -m tkg-mgmttest-cluster
+tmc system context configure -l "log" -m partnerse-demo-mgmt
 ```
+
 ```execute
 tmc managementcluster list
 ```
 
 ```execute
-tmc managementcluster get tkg-mgmttest-cluster
+tmc managementcluster get partnerse-demo-mgmt
 ```
 
-Navigate to TMC console > Administration > Management clusters > click on tkg-mgmttest-cluster
+Navigate to TMC console > Administration > Management clusters > click on partnerse-demo-mgmt
 
 ```dashboard:open-url
 url: https://console.cloud.vmware.com/csp/gateway/discovery
 ```
+
 ```execute
-tmc cluster attach -g default -n test-tmcattach -m tkg-mgmttest-cluster -p Eknath --kubeconfig ~/.kube/config-tkg
+tmc cluster attach -g default -n {{ session_namespace }} -m partnerse-demo-mgmt -p demouser --kubeconfig ~/.kube/config-tkg
 ```
 
 Navigate to  TMC console > Clusters > click on clustername
