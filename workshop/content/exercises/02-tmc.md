@@ -38,6 +38,16 @@ Navigate to TMC console > Administration > Management clusters > click on partne
 url: https://console.cloud.vmware.com/csp/gateway/discovery
 ```
 
+Attach the workload cluster using TMC CLI
+
+```execute
+tmc cluster attach -g default -n {{ session_namespace }} -m partnerse-demo-mgmt -p demouser --kubeconfig ~/.kube/config-tkg
+```
+
+Navigate to  TMC console > Clusters > click on clustername
+
+![TMC Cluster console](images/TMC-5.png)
+
 ```execute
 tmc cluster validate --kubeconfig ~/.kube/config-tkg
 ```
