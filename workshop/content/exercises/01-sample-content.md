@@ -83,6 +83,9 @@ Meanwhile you can check the cluster creation logs in Terminal 2
 podname=$(kubectl get pods -n capz-system -o=jsonpath={.items[0].metadata.name})
 kubectl logs $podname -n capz-system -c manager -f
 ```
+##############################################################
+########### Wait for the cluster to get created ##############
+##############################################################
 
 #### Click here to check the deployed workload clusters 
 ```execute
@@ -136,7 +139,7 @@ kubectl expose deployment spring-deploy --port=8080 --type=LoadBalancer -n test-
 kubectl get svc -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
 
-![Cody Languages](images/test-application.png)
+![Application](images/test-application.png)
 
 #### Variable interpolation
 
