@@ -134,10 +134,15 @@ kubectl create deployment spring-deploy --port=8080 --image=eknath009/tbs-spring
 ```execute
 kubectl expose deployment spring-deploy --port=8080 --type=LoadBalancer -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
-#### Collect the External IP and access the same in browser
+#### Collect the External IP and access the same in browser with port 8080
+
 ```execute
 kubectl get svc -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
+
+############################################################
+#### Inform VMware SE if application is not accessible #####
+############################################################
 
 ![Application](images/test-application.png)
 
