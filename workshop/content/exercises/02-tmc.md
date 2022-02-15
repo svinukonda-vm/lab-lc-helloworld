@@ -12,6 +12,8 @@ url: https://console.cloud.vmware.com/csp/gateway/discovery
 
 ![TMC Generate API Token](images/TMC-3.png)
 
+##### Copy the token and save it for later use ####
+
 ![TMC Token](images/TMC-4.png)
 
 ```execute
