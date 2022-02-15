@@ -1,7 +1,7 @@
 apiVersion: training.eduk8s.io/v1alpha1
 kind: TrainingPortal
 metadata:
-  name: partnersedemo
+  name: partnerse-demo
 spec:
   portal:
     registration:
