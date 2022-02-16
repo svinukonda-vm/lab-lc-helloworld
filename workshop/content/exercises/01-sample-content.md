@@ -56,9 +56,46 @@ kubectl get pods -A
 ```copy
 echo "copy text to buffer"
 ```
+
 ```execute-2
-ssh -i ~/.ssh/creds 
+ssh -i ~/.kube/jb_instance azureuser@20.41.226.212
 ```
+
+```execute-2
+tanzu management-cluster create --ui --bind 0.0.0.0:8080
+```
+
+```dashboard:open-url
+url: http://20.41.226.212:8080
+```
+
+###### Azure details for management cluster creation can be found by executing this command: 
+
+```execute
+cat /home/eduk8s/creds-tkg
+```
+
+Resource Group: Create a new resource group and provide name as: {{ session_namespace }}-RG
+Azure VNET Settings: 
+    Create a new VNET on Azure > from drop down select the newly created RG: {{ session_namespace }}-RG
+    Provide VNET name as: {{ session_namespace }}-vnet
+    Control Plane subnet name : {{ session_namespace }}-cp
+    Worker node subnet name: {{ session_namespace }}-worker 
+Management Cluster Settings: 
+    Select Development
+    Instance TYpe: Standard_D2s_v3
+    Management Cluster Name: {{ session_namespace }}-mgmt
+    Worker Node Instance Type: Standard_D2s_v3
+Metadata: Leave to default and click NEXT
+Kubernetes Network: Leave to default and click NEXT
+Identity Management: Leave to default and click NEXT
+OS Image: from dropdown select Ubuntu-20.04
+CEIP Agreement: Leave to default and click NEXT
+Review Configuration and click on Deploy management cluster
+
+######### Cluster creation takes about 20 mins #############
+
+
 
 #### Click text to check tanzu management cluster
 
