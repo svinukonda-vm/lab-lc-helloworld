@@ -37,17 +37,17 @@ tmc version
 ```copy
 echo "copy text to buffer"
 ```
-
+##
 ```execute-2
-ssh -i ~/.kube/jb_instance azureuser@20.41.226.212
+ssh -i jb_instance azureuser@52.140.0.80 -o StrictHostKeyChecking=accept-new
 ```
 
 ```execute-2
 tanzu management-cluster create --ui --bind 0.0.0.0:8080
 ```
-
+##
 ```dashboard:open-url
-url: http://20.41.226.212:8080
+url: http://52.140.0.80:8080
 ```
 
 ###### Azure details for management cluster creation can be found by executing this command: 
@@ -55,7 +55,7 @@ url: http://20.41.226.212:8080
 ```execute
 cat /home/eduk8s/creds-tkg
 ```
-
+Fill Iaas provider details as shown in creds-tkg file
 Resource Group: Create a new resource group and provide name as: {{ session_namespace }}-RG
 Azure VNET Settings: 
     Create a new VNET on Azure > from drop down select the newly created RG: {{ session_namespace }}-RG
@@ -69,7 +69,7 @@ Management Cluster Settings:
     Worker Node Instance Type: Standard_D2s_v3
 Metadata: Leave to default and click NEXT
 Kubernetes Network: Leave to default and click NEXT
-Identity Management: Leave to default and click NEXT
+Identity Management: disable "Enable Identity Management Settings" and click NEXT
 OS Image: from dropdown select Ubuntu-20.04
 CEIP Agreement: Leave to default and click NEXT
 Review Configuration and click on Deploy management cluster
