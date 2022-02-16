@@ -31,25 +31,6 @@ kubectl version
 ```execute
 tmc version
 ```
-Below command should be showing the current context pointing to management cluster.
-
-#### Click here to check the current context
-
-```execute
-kubectl config get-contexts
-```
-
-#### Click text to check the Nodes
-
-```execute
-kubectl get nodes
-```
-
-#### Click text to check the pods
-
-```execute
-kubectl get pods -A
-```
 
 #### Click text to copy
 
@@ -95,12 +76,26 @@ Review Configuration and click on Deploy management cluster
 
 ######### Cluster creation takes about 20 mins #############
 
-
-
 #### Click text to check tanzu management cluster
 
+Below command should be showing the current context pointing to management cluster.
+
+#### Click here to check the current context
+
 ```execute
-tanzu mc get
+kubectl config get-contexts
+```
+
+#### Click text to check the Nodes
+
+```execute
+kubectl get nodes
+```
+
+#### Click text to check the pods
+
+```execute
+kubectl get pods -A 
 ```
 
 #### Read the config file to understand the variables defined for Tanzu Kubernetes cluster which will be deployed shortly
@@ -108,18 +103,42 @@ tanzu mc get
 ```execute
 cat /home/eduk8s/wc-config.yaml
 ```
-Workload cluster is deployed with your session name space, Idel time for creation time is 10 mins. 
+
+```execute-all
+/bin/sh /home/eduk8s/script-session.sh && exit && clear
+```
+
+#### Copying the contexts into both terminals
+
+```execute-all
+tanzu login --kubeconfig ~/.kube/config --context {{ session_namespace }}-mgmt-admin@{{ session_namespace }}-mgmt --name {{ session_namespace }}-mgmt
+```
+
+```execute-all
+kubectl config set-context {{ session_namespace }}-mgmt-admin@{{ session_namespace }}-mgmt
+```
+
+```execute-all
+kubectl config use-context {{ session_namespace }}-mgmt-admin@{{ session_namespace }}-mgmt
+```
+```execute-all
+kubectl config get-contexts
+```
+
+```execute-all
+tanzu mc get
+```
 
 #### Click here to deploy workload cluster
 
-```execute
+```execute-2
 tanzu cluster create {{ session_namespace }} -f /home/eduk8s/wc-config.yaml
 ```
 
-Meanwhile you can check the cluster creation logs in Terminal 2
+Meanwhile you can check the cluster creation logs in Terminal 1
 #### Click here to check the progress of workload creation from logs
 
-```execute-2
+```execute
 podname=$(kubectl get pods -n capz-system -o=jsonpath={.items[0].metadata.name})
 kubectl logs $podname -n capz-system -c manager -f
 ```
@@ -128,7 +147,7 @@ kubectl logs $podname -n capz-system -c manager -f
 ############################################################
 
 #### Click here to check the deployed workload clusters 
-```execute
+```execute-2
 tanzu cluster list
 ```
 #### Get credentials and export the config file
