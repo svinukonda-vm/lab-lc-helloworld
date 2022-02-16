@@ -38,8 +38,13 @@ tmc version
 echo "copy text to buffer"
 ```
 ##
+
 ```execute-2
-ssh -i jb_instance azureuser@52.140.0.80 -o StrictHostKeyChecking=accept-new
+/bib/sh ~/script-session.sh
+```
+
+```execute-2
+ssh -i id_rsa azureuser@<ip> -o StrictHostKeyChecking=accept-new
 ```
 
 ```execute-2
@@ -47,7 +52,7 @@ tanzu management-cluster create --ui --bind 0.0.0.0:8080
 ```
 ##
 ```dashboard:open-url
-url: http://52.140.0.80:8080
+url: http://<ip from terminal 2>:8080
 ```
 
 ###### Azure details for management cluster creation can be found by executing this command: 
@@ -55,6 +60,7 @@ url: http://52.140.0.80:8080
 ```execute
 cat /home/eduk8s/creds-tkg
 ```
+
 Fill Iaas provider details as shown in creds-tkg file
 Resource Group: Create a new resource group and provide name as: {{ session_namespace }}-RG
 Azure VNET Settings: 
@@ -82,19 +88,19 @@ Below command should be showing the current context pointing to management clust
 
 #### Click here to check the current context
 
-```execute
+```execute-2
 kubectl config get-contexts
 ```
 
 #### Click text to check the Nodes
 
-```execute
+```execute-2
 kubectl get nodes
 ```
 
 #### Click text to check the pods
 
-```execute
+```execute-2
 kubectl get pods -A 
 ```
 
