@@ -33,7 +33,7 @@ export SESSION_NAME={{ session_namespace }}
 #### Set up the environment
 
 ```execute-1
-/bin/sh ~/script-session.sh
+source ~/script-session.sh
 ```
 
 ########################
