@@ -153,7 +153,13 @@ kubectl logs $podname -n capz-system -c manager -f
 #### Click here to check the deployed workload clusters 
 ```execute-1
 tanzu cluster list
+clear: true
 ```
+```execute-2
+exit
+clear: true
+```
+
 #### Get credentials and export the config file
 ```execute
 tanzu cluster kubeconfig get {{ session_namespace }} --admin --export-file ~/.kube/config-tkg
@@ -197,7 +203,7 @@ kubectl create deployment spring-deploy --port=8080 --image=eknath009/tbs-spring
 ```execute
 kubectl expose deployment spring-deploy --port=8080 --type=LoadBalancer -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
-#### Collect the External IP and access the same in browser with port 8080
+#### Collect the External IP and access the same in browser with port 8080, wait for a min and execute again
 
 ```execute
 kubectl get svc -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
