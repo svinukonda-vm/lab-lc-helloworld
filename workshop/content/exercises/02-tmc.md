@@ -17,11 +17,11 @@ url: https://console.cloud.vmware.com/csp/gateway/discovery
 ![TMC Token](images/TMC-4.png)
 
 ```execute
-tmc login -n partnerse-demo --no-configure
+tmc login -n {{ session_namespace }} --no-configure
 ```
 
 ```execute
-tmc system context configure -l "log" -m partnerse-demo-mgmt
+tmc system context configure -l "log" -m {{ session_namespace }}-mgmt
 ```
 
 ```execute
@@ -29,10 +29,32 @@ tmc managementcluster list
 ```
 
 ```execute
-tmc managementcluster get partnerse-demo-mgmt
+tmc clustergroup create --name {{ session_namespace }}-cg --description "Workshop of {{ session_namespace }}"
 ```
 
-Navigate to TMC console > Administration > Management clusters > click on partnerse-demo-mgmt
+```execute
+tmc clustergroup list
+```
+
+```execute
+tmc managementcluster register {{ session_namespace }}-mgmt  -k ~/.kube/config -p TKG -c {{ session_namespace }}-cg
+```
+
+```execute
+tmc managementcluster list
+```
+
+```execute
+kubectl get all -n vmware-system-tmc
+```
+
+##### It takes few mins to turn healthy
+
+```execute
+tmc managementcluster get {{ session_namespace }}-mgmt
+```
+
+Navigate to TMC console > Administration > Management clusters > click on {{ session_namespace }}-mgmt
 
 ```dashboard:open-url
 url: https://console.cloud.vmware.com/csp/gateway/discovery
@@ -41,10 +63,10 @@ url: https://console.cloud.vmware.com/csp/gateway/discovery
 Attach the workload cluster using TMC CLI
 
 ```execute
-tmc cluster attach -g default -n {{ session_namespace }} -m partnerse-demo-mgmt -p demouser --kubeconfig ~/.kube/config-tkg
+tmc cluster attach -g default -n {{ session_namespace }} -m {{ session_namespace }}-mgmt -p TKG --kubeconfig ~/.kube/config-tkg
 ```
 
-Navigate to  TMC console > Clusters > click on clustername
+Navigate to  TMC console > Clusters > click on clustername {{ session_namespace }}
 
 ![TMC Cluster console](images/TMC-5.png)
 
