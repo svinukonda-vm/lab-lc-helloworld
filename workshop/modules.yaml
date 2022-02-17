@@ -9,16 +9,16 @@ modules:
         name: TKG workshop
     exercises/02-tmc:
         name: TMC workshop
-    exercises/03-tmc-packageinstall:
+    exercises/03-tmc-packages:
         name: TMC Package Install
-    exercises/04-tmc-clusterattach:
-        name: TMC Cluster Creation
-    exercises/05-tmc-clusterdelete:
+    exercises/04-delete-packages:
+        name: TMC Delete packages
+    exercises/05-cluster-create:
+        name: TMC Cluster Create
+    exercises/06-cluster-delete:
         name: TMC Cluster Delete
-    exercises/06-tmc-packages:
-        name: TMC packages GUI
-    exercises/07-delete-packages:
-        name: TMC delete packages
+    exercises/07-Cleanup:
+        name: Clean Up
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop
