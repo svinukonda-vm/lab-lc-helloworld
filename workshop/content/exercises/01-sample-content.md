@@ -40,11 +40,14 @@ echo "copy text to buffer"
 ##
 
 ```execute-1
-/bib/sh ~/script-session.sh
+/bin/sh ~/script-session.sh
 ```
+########################
+Preparing your setup, please wait for few mins. Continue further once you see the public ip on screen (Terminal-1)
+########################
 
-```execute-2
-ssh -i id_rsa azureuser@<ip> -o StrictHostKeyChecking=accept-new
+```copy-and-edit
+ssh -i id_rsa azureuser@<ipfromterminal1> -o StrictHostKeyChecking=accept-new
 ```
 
 ```execute-2
@@ -52,7 +55,7 @@ tanzu management-cluster create --ui --bind 0.0.0.0:8080
 ```
 ##
 ```dashboard:open-url
-url: http://<ip collected from terminal 1>:8080
+url: http://<ipcollectedfromterminal1>:8080
 ```
 
 ###### Azure details for management cluster creation can be found by executing this command: 
@@ -61,7 +64,7 @@ url: http://<ip collected from terminal 1>:8080
 cat /home/eduk8s/creds-tkg
 ```
 
-Fill Iaas provider details as shown in creds-tkg file
+Fill Iaas provider details as shown in creds-tkg file 
 Resource Group: Create a new resource group and provide name as: {{ session_namespace }}-RG
 Azure VNET Settings: 
     Create a new VNET on Azure > from drop down select the newly created RG: {{ session_namespace }}-RG
@@ -87,48 +90,24 @@ Review Configuration and click on Deploy management cluster
 Below command should be showing the current context pointing to management cluster.
 #### Please wait till the management cluster is created ####
 
-#### Click here to check the current context
-
-```execute-2
-kubectl config get-contexts
-```
-
-#### Click text to check the Nodes
-
-```execute-2
-kubectl get nodes
-```
-
-#### Click text to check the pods
-
-```execute-2
-kubectl get pods -A 
-```
-
-#### Read the config file to understand the variables defined for Tanzu Kubernetes cluster which will be deployed shortly
-
-```execute
-cat /home/eduk8s/wc-config.yaml
-```
-
 ```execute
 /bin/sh /home/eduk8s/script-session-tmc.sh && exit && clear
 ```
 
 #### Copying the contexts into both terminals
 
-```execute-all
+```execute-1
 tanzu login --kubeconfig ~/.kube/config --context {{ session_namespace }}-mgmt-admin@{{ session_namespace }}-mgmt --name {{ session_namespace }}-mgmt
 ```
 
-```execute-all
+```execute-1
 kubectl config set-context {{ session_namespace }}-mgmt-admin@{{ session_namespace }}-mgmt
 ```
-
-```execute-all
+```execute-1
 kubectl config use-context {{ session_namespace }}-mgmt-admin@{{ session_namespace }}-mgmt
 ```
-```execute-all
+
+```execute-2
 kubectl config get-contexts
 ```
 
@@ -136,16 +115,34 @@ kubectl config get-contexts
 tanzu mc get
 ```
 
+#### Click text to check the Nodes
+
+```execute-all
+kubectl get nodes
+```
+
+#### Click text to check the pods
+
+```execute-all
+kubectl get pods -A 
+```
+
+#### Read the config file to understand the variables defined for Tanzu Kubernetes cluster which will be deployed shortly
+
+```execute-1
+cat /home/eduk8s/wc-config.yaml
+```
+
 #### Click here to deploy workload cluster
 
-```execute-2
+```execute-1
 tanzu cluster create {{ session_namespace }} -f /home/eduk8s/wc-config.yaml
 ```
 
 Meanwhile you can check the cluster creation logs in Terminal 1
 #### Click here to check the progress of workload creation from logs
 
-```execute
+```execute-2
 podname=$(kubectl get pods -n capz-system -o=jsonpath={.items[0].metadata.name})
 kubectl logs $podname -n capz-system -c manager -f
 ```
@@ -154,7 +151,7 @@ kubectl logs $podname -n capz-system -c manager -f
 ############################################################
 
 #### Click here to check the deployed workload clusters 
-```execute-2
+```execute-1
 tanzu cluster list
 ```
 #### Get credentials and export the config file
