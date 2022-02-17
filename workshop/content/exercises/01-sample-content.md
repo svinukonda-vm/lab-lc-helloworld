@@ -20,12 +20,6 @@ echo "Hello, Welcome to Partner workshop session"
 tanzu version
 ```
 
-#### Click here to check Kubectl version
-
-```execute
-kubectl version
-```
-
 #### Click here to check TMC CLI version
 
 ```execute
@@ -36,27 +30,22 @@ tmc version
 export SESSION_NAME={{ session_namespace }}
 ```
 
-#### Click text to copy
-
-```copy
-echo "copy text to buffer"
-```
-##
-
 ```execute-1
 /bin/sh ~/script-session.sh
 ```
+
 ########################
 Preparing your setup, please wait for few mins. Continue further once you see the public ip on screen (Terminal-1)
 ########################
 
-```copy-and-edit
+```execute-2
 ssh -i id_rsa azureuser@<ipfromterminal1> -o StrictHostKeyChecking=accept-new
 ```
 
 ```execute-2
 tanzu management-cluster create --ui --bind 0.0.0.0:8080
 ```
+
 ##
 ```dashboard:open-url
 url: http://<ipcollectedfromterminal1>:8080
@@ -95,20 +84,8 @@ Below command should be showing the current context pointing to management clust
 #### Please wait till the management cluster is created ####
 
 ```execute
-/bin/sh /home/eduk8s/script-session-tmc.sh && exit && clear
-```
-
-#### Copying the contexts into both terminals
-
-```execute-1
-tanzu login --kubeconfig ~/.kube/config --context {{ session_namespace }}-mgmt-admin@{{ session_namespace }}-mgmt --name {{ session_namespace }}-mgmt
-```
-
-```execute-1
-kubectl config set-context {{ session_namespace }}-mgmt-admin@{{ session_namespace }}-mgmt
-```
-```execute-1
-kubectl config use-context {{ session_namespace }}-mgmt-admin@{{ session_namespace }}-mgmt
+/bin/sh /home/eduk8s/script-session-tmc.sh
+clear: true
 ```
 
 ```execute-2
@@ -143,7 +120,7 @@ cat /home/eduk8s/wc-config.yaml
 tanzu cluster create {{ session_namespace }} -f /home/eduk8s/wc-config.yaml
 ```
 
-Meanwhile you can check the cluster creation logs in Terminal 1
+Meanwhile you can check the cluster creation logs in Terminal 2
 #### Click here to check the progress of workload creation from logs
 
 ```execute-2
