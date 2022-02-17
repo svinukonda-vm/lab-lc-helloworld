@@ -30,6 +30,8 @@ tmc version
 export SESSION_NAME={{ session_namespace }}
 ```
 
+#### Set up the environment
+
 ```execute-1
 /bin/sh ~/script-session.sh
 ```
@@ -38,17 +40,21 @@ export SESSION_NAME={{ session_namespace }}
 Preparing your setup, please wait for few mins. Continue further once you see the public ip on screen (Terminal-1)
 ########################
 
+### Connect to the VM to deploy a Management cluster
+
 ```execute-2
 ssh -i id_rsa azureuser@<ipfromterminal1> -o StrictHostKeyChecking=accept-new
 ```
+
+### Execute to deploy management cluster
 
 ```execute-2
 tanzu management-cluster create --ui --bind 0.0.0.0:8080
 ```
 
-##
+## Replace ipcollectedfromterminal1 with IP shown in Terminal 1
 ```dashboard:open-url
-url: http://<ipcollectedfromterminal1>:8080
+url: http://ipcollectedfromterminal1:8080
 ```
 
 ###### Azure details for management cluster creation can be found by executing this command: 
@@ -57,18 +63,25 @@ url: http://<ipcollectedfromterminal1>:8080
 cat /home/eduk8s/creds-tkg
 ```
 
-Fill Iaas provider details as shown in creds-tkg file 
-Resource Group: Create a new resource group and provide name as: {{ session_namespace }}-RG
+## Fill Iaas provider details as shown in creds-tkg file: 
+
+Resource Group: Create a new resource group and provide name as: 
+## {{ session_namespace }}-RG
 Azure VNET Settings: 
-    Create a new VNET on Azure > from drop down select the newly created RG: {{ session_namespace }}-RG
-    Provide VNET name as: {{ session_namespace }}-vnet
-    Control Plane subnet name : {{ session_namespace }}-cp
-    Worker node subnet name: {{ session_namespace }}-worker 
+    Create a new VNET on Azure > from drop down select the newly created RG:
+##    {{ session_namespace }}-RG
+    Provide VNET name as: 
+##    {{ session_namespace }}-vnet
+    Control Plane subnet name : 
+##    {{ session_namespace }}-cp
+    Worker node subnet name: 
+##    {{ session_namespace }}-worker 
 Management Cluster Settings: 
-    Select Development
-    Instance TYpe: Standard_D2s_v3
-    Management Cluster Name: {{ session_namespace }}-mgmt
-    Worker Node Instance Type: Standard_D2s_v3
+##    Select Development
+##    Instance TYpe: Standard_D2s_v3
+    Management Cluster Name: 
+##    {{ session_namespace }}-mgmt
+##    Worker Node Instance Type: Standard_D2s_v3
 Metadata: Leave to default and click NEXT
 Kubernetes Network: Leave to default and click NEXT
 Identity Management: disable "Enable Identity Management Settings" and click NEXT
