@@ -39,7 +39,7 @@ echo "copy text to buffer"
 ```
 ##
 
-```execute-2
+```execute-1
 /bib/sh ~/script-session.sh
 ```
 
@@ -52,7 +52,7 @@ tanzu management-cluster create --ui --bind 0.0.0.0:8080
 ```
 ##
 ```dashboard:open-url
-url: http://<ip from terminal 2>:8080
+url: http://<ip collected from terminal 1>:8080
 ```
 
 ###### Azure details for management cluster creation can be found by executing this command: 
@@ -80,11 +80,12 @@ OS Image: from dropdown select Ubuntu-20.04
 CEIP Agreement: Leave to default and click NEXT
 Review Configuration and click on Deploy management cluster
 
-######### Cluster creation takes about 20 mins #############
+######### Cluster creation takes about 15 mins #############
 
 #### Click text to check tanzu management cluster
 
 Below command should be showing the current context pointing to management cluster.
+#### Please wait till the management cluster is created ####
 
 #### Click here to check the current context
 
@@ -110,8 +111,8 @@ kubectl get pods -A
 cat /home/eduk8s/wc-config.yaml
 ```
 
-```execute-all
-/bin/sh /home/eduk8s/script-session.sh && exit && clear
+```execute
+/bin/sh /home/eduk8s/script-session-tmc.sh && exit && clear
 ```
 
 #### Copying the contexts into both terminals
