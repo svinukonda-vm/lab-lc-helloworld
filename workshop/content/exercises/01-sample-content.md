@@ -32,6 +32,10 @@ kubectl version
 tmc version
 ```
 
+```execute-all
+export SESSION_NAME={{ session_namespace }}
+```
+
 #### Click text to copy
 
 ```copy
