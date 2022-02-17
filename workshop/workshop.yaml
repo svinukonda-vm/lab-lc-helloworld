@@ -6,9 +6,9 @@ modules:
     - setup-environment
     - exercises/01-sample-content
     - exercises/02-tmc
-    - exercises/03-tmc-packageinstall
-    - exercises/04-tmc-clusterattach
-    - exercises/05-tmc-clusterdelete
-    - exercises/06-tmc-packages
-    - exercises/07-delete-packages
+    - exercises/03-tmc-packages
+    - exercises/04-delete-packages
+    - exercises/05-cluster-create
+    - exercises/06-cluster-delete
+    - exercises/07-Cleanup
     - workshop-summary
