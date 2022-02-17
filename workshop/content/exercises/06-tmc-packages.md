@@ -44,7 +44,7 @@ Name the Installed package name as : {{ session_namespace }}-contour and click N
 
 ![TMC Cluster console](images/TMC-12.png)
 
-### Execute the command to see the config values in Terminal -2
+### Execute the command to see the config values in Terminal-2
 
 ```execute-2
 cat ~/contour.yaml
@@ -76,9 +76,9 @@ Name the Installed package name as : {{ session_namespace }}-harbor and click NE
 
 ![TMC Package console](images/TMC-15.png)
 
-### Execute the command to see the config values in Terminal -2
+### Execute the command to see the config values in Terminal-1
 
-```execute-2
+```execute-1
 cat ~/harbor.yaml
 ```
 
