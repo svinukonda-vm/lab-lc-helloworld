@@ -5,7 +5,7 @@ https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/G
 ```
 #### Install cert-manager Package using TMC CLI: 
 
-Navigate to TMC console > Catalog > select cluster from drop down and click on cert-manager
+Navigate to TMC console > Catalog > select cluster {{ session_namespace }} from drop down and click on cert-manager
 
 ![TMC install package](images/TMC-6.png)
 
@@ -13,7 +13,7 @@ Click on Install Package which can be found on top right side of the page
 
 ![TMC install package](images/TMC-7.png)
 
-Name the Installed package name as : demo-certmanager-pack and click NEXT
+Name the Installed package name as : {{ session_namespace }}-certm and click NEXT
 
 ![TMC install package](images/TMC-8.png)
 
@@ -32,7 +32,7 @@ Navigate to TMC console > Catalog > Installed > check if the package (cert-manag
 
 #### Install Contour Package using TMC CLI: 
 
-Navigate to TMC console > Catalog > select cluster from drop down and click on Contour
+Navigate to TMC console > Catalog > select cluster {{ session_namespace }} from drop down and click on Contour
 
 ![TMC Cluster console](images/TMC-10.png)
 
@@ -40,11 +40,15 @@ Click on Install Package which can be found on top right side of the page
 
 ![TMC Cluster console](images/TMC-11.png)
 
-Name the Installed package name as : demo-contour-pack and click NEXT
+Name the Installed package name as : {{ session_namespace }}-contour and click NEXT
 
 ![TMC Cluster console](images/TMC-12.png)
 
-Copy the below given values: ### to provide yaml text with type Load balancer
+### Execute the command to see the config values in Terminal -2
+
+```execute-2
+cat ~/contour.yaml
+```
 
 ![TMC Cluster console](images/TMC-13.png) 
 
@@ -55,9 +59,25 @@ Install Package
 ![TMC Cluster console](images/TMC-14.png) 
 
 ```execute
-kubectl get pods -n cert-manager
+kubectl get svc -n tanzu-system-ingress --kubeconfig ~/.kube/config-tkg
 ```
 
 Navigate to TMC console > Catalog > Installed > check if the package (cert-manager.tanzu.vmware.com) is succeeded and healthy
 
 #### Install Harbor Package using TMC CLI: 
+
+Navigate to TMC console > Catalog > select cluster {{ session_namespace }} from drop down and click on Harbor
+
+Click on Install Package which can be found on top right side of the page
+
+Name the Installed package name as : {{ session_namespace }}-harbor and click NEXT
+
+### Execute the command to see the config values in Terminal -2
+
+```execute-2
+cat ~/harbor.yaml
+```
+
+Leave to Default and click NEXT
+
+Install Package
