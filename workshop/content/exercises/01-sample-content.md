@@ -25,6 +25,7 @@ tanzu version
 ```execute
 tmc version
 ```
+### Export session name as env variable
 
 ```execute-all
 export SESSION_NAME={{ session_namespace }}
@@ -36,92 +37,99 @@ export SESSION_NAME={{ session_namespace }}
 source ~/script-session.sh
 ```
 
-########################
-Preparing your setup, please wait for few mins. Continue further once you see the public ip on screen (Terminal-1)
-########################
+# Preparing your setup, please wait for few mins. Continue further once you see the public ip on screen (Terminal-1)
 
-### Connect to the VM to deploy a Management cluster
+#### Connect to the VM to deploy a Management cluster
 
 ```execute-2
 ssh -i id_rsa azureuser@<ipfromterminal1> -o StrictHostKeyChecking=accept-new
 ```
+Replace <ipfromterminal1> with IP shown in Terminal 1
 
-### Execute to deploy management cluster
+## Deploy management cluster
 
 ```execute-2
 tanzu management-cluster create --ui --bind 0.0.0.0:8080
 ```
 
-## Replace ipcollectedfromterminal1 with IP shown in Terminal 1
+### Replace ipcollectedfromterminal1 with IP shown in Terminal 1
+
 ```dashboard:open-url
 url: http://ipcollectedfromterminal1:8080
 ```
 
-###### Azure details for management cluster creation can be found by executing this command: 
+Select Azure in Installer page
+    
+##### Azure details for management cluster creation can be found by executing this command: 
 
 ```execute
 cat /home/eduk8s/creds-tkg
 ```
+Copy and paste the values in 
 
-## Fill Iaas provider details as shown in creds-tkg file: 
+### Fill Iaas provider details as shown in creds-tkg file: 
 
-Resource Group: Create a new resource group and provide name as: 
-## {{ session_namespace }}-RG
+Resource Group: Create a new resource group and provide below provided name: 
+#### {{ session_namespace }}-RG
 Azure VNET Settings: 
     Create a new VNET on Azure > from drop down select the newly created RG:
-##    {{ session_namespace }}-RG
-    Provide VNET name as: 
-##    {{ session_namespace }}-vnet
-    Control Plane subnet name : 
-##    {{ session_namespace }}-cp
-    Worker node subnet name: 
-##    {{ session_namespace }}-worker 
+#### {{ session_namespace }}-RG
+Provide VNET name as:
+#### {{ session_namespace }}-vnet
+Control Plane subnet name : 
+#### {{ session_namespace }}-cp
+Worker node subnet name: 
+#### {{ session_namespace }}-worker 
 Management Cluster Settings: 
-##    Select Development
-##    Instance TYpe: Standard_D2s_v3
-    Management Cluster Name: 
-##    {{ session_namespace }}-mgmt
-##    Worker Node Instance Type: Standard_D2s_v3
-Metadata: Leave to default and click NEXT
-Kubernetes Network: Leave to default and click NEXT
-Identity Management: disable "Enable Identity Management Settings" and click NEXT
-OS Image: from dropdown select Ubuntu-20.04
-CEIP Agreement: Leave to default and click NEXT
-Review Configuration and click on Deploy management cluster
+  Select Development 
+#### Instance Type: Standard_D2s_v3
+Management Cluster Name: 
+####    {{ session_namespace }}-mgmt
+#### Worker Node Instance Type: Standard_D2s_v3
+###### Metadata: Leave to default and click NEXT
+###### Kubernetes Network: Leave to default and click NEXT
+###### Identity Management: disable "Enable Identity Management Settings" and click NEXT
+###### OS Image: from dropdown select Ubuntu-20.04
+###### CEIP Agreement: Leave to default and click NEXT
+###### Review Configuration and click on Deploy management cluster
 
-######### Cluster creation takes about 15 mins #############
+## Cluster creation takes about 15 mins
 
-#### Click text to check tanzu management cluster
-
-Below command should be showing the current context pointing to management cluster.
 #### Please wait till the management cluster is created ####
+#### Proceed further only once you see this on screen (terminal-2)
+
+![Management Cluster](images/TKG-1.png)
 
 ```execute
 /bin/sh /home/eduk8s/script-session-tmc.sh
 clear: true
 ```
 
+##### Click to check all contexts in management cluster
+    
 ```execute-2
 kubectl config get-contexts
 ```
 
+##### Get Management cluster info
+    
 ```execute-all
 tanzu mc get
 ```
 
-#### Click text to check the Nodes
+##### Click to check the Nodes
 
 ```execute-all
 kubectl get nodes
 ```
 
-#### Click text to check the pods
+##### Click to check the pods in all namespaces of management cluster
 
 ```execute-all
 kubectl get pods -A 
 ```
 
-#### Read the config file to understand the variables defined for Tanzu Kubernetes cluster which will be deployed shortly
+##### Read the config file to understand the variables defined for Tanzu Kubernetes cluster which will be deployed shortly
 
 ```execute-1
 cat /home/eduk8s/wc-config.yaml
@@ -134,24 +142,29 @@ tanzu cluster create {{ session_namespace }} -f /home/eduk8s/wc-config.yaml
 ```
 
 Meanwhile you can check the cluster creation logs in Terminal 2
-#### Click here to check the progress of workload creation from logs
+##### Click here to check the progress of workload creation from logs
 
 ```execute-2
 podname=$(kubectl get pods -n capz-system -o=jsonpath={.items[0].metadata.name})
 kubectl logs $podname -n capz-system -c manager -f
 ```
-############################################################
-########### Wait for the cluster to get created ############
-############################################################
+###########################################################
+#### Wait for the cluster to get created ##################
+###########################################################
 
 #### Click here to check the deployed workload clusters 
 ```execute-1
 tanzu cluster list
-clear: true
 ```
+#### Exit the Jumpbox Terminal
+
 ```execute-2
 exit
-clear: true
+```
+    
+#### Execute to terminate the Jumpbox
+```execute-1
+
 ```
 
 #### Get credentials and export the config file
