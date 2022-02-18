@@ -151,6 +151,9 @@ kubectl logs $podname -n capz-system -c manager -f
 #### Wait for the cluster to get created ##################
 ###########################################################
 
+##### Proceed further only once you see this on screen (terminal-1)
+![Workload Cluster](images/TKG-2.png)
+
 #### Click here to check the deployed workload clusters 
 ```execute-1
 tanzu cluster list
