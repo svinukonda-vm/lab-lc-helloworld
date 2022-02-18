@@ -219,6 +219,12 @@ kubectl expose deployment spring-deploy --port=8080 --type=LoadBalancer -n test-
 ```execute
 kubectl get svc -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
+    
+##### Access the application on port 8080
+    
+```dashboard:open-url
+url: http://externalipcollectedabove:8080
+```
 
 ############################################################
 #### Inform VMware SE if application is not accessible #####
