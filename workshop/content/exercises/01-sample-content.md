@@ -65,7 +65,7 @@ Select Azure in Installer page
 ```execute
 cat /home/eduk8s/creds-tkg
 ```
-Copy and paste the values in 
+Copy and paste the values in Installer page opened in browser
 
 ### Fill Iaas provider details as shown in creds-tkg file: 
 
@@ -102,7 +102,6 @@ Management Cluster Name:
 
 ```execute
 /bin/sh /home/eduk8s/script-session-tmc.sh
-clear: true
 ```
 
 ##### Click to check all contexts in management cluster
@@ -159,58 +158,63 @@ tanzu cluster list
 #### Exit the Jumpbox Terminal
 
 ```execute-2
+ctrl-c
 exit
 ```
     
 #### Execute to terminate the Jumpbox
 ```execute-1
-
+az group delete -n {{ session_namespace }}-JB --yes
 ```
 
-#### Get credentials and export the config file
+##### Get credentials and export the config file
 ```execute
 tanzu cluster kubeconfig get {{ session_namespace }} --admin --export-file ~/.kube/config-tkg
 ```
-#### Read the kubeconfig file
+##### Read the kubeconfig file
 ```execute
 cat  ~/.kube/config-tkg
 ```
-#### Click here to change the context from management cluster to workload
+##### Click here to change the context from management cluster to workload
 ```execute
 kubectl config use-context {{ session_namespace }}-admin@{{ session_namespace }} --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
-#### Verify the context
+##### Verify the context
 ```execute
 kubectl config get-contexts --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
-#### Check the nodes in workload cluster
+##### Check the nodes in workload cluster
 ```execute
 kubectl get nodes -A --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
-#### Check the pods in workload cluster
+##### Check the pods in workload cluster
 ```execute
 kubectl get pods -A --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
 
-Deploy a test application in workload cluster
+#### Deploy a test application in workload cluster
 
-#### Create namespace test-application in workload cluster which will be used to deploy an application
+##### Create namespace test-application in workload cluster which will be used to deploy an application
 ```execute
 kubectl create ns test-application --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
-#### Check all the namespaces in workload cluster
+    
+##### Check all the namespaces in workload cluster
 ```execute
 kubectl get ns --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
-#### Create a deployment with 2 replicas
+    
+##### Create a deployment with 2 replicas
 ```execute
 kubectl create deployment spring-deploy --port=8080 --image=eknath009/tbs-spring-image:3 --replicas=2 -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
-#### Expose the deployment 
+    
+##### Expose the deployment 
 ```execute
 kubectl expose deployment spring-deploy --port=8080 --type=LoadBalancer -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
 ```
-#### Collect the External IP and access the same in browser with port 8080, wait for a min and execute again
+    
+##### Collect the External IP and access the same in browser with port 8080, wait for a min and execute again
 
 ```execute
 kubectl get svc -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
@@ -222,7 +226,7 @@ kubectl get svc -n test-application --kubeconfig /home/eduk8s/.kube/config-tkg
 
 ![Application](images/test-application.png)
 
-#### Variable interpolation
+##### Variable interpolation
 
 workshop_name: {{ workshop_name }}
 
@@ -238,4 +242,4 @@ ingress_protocol: {{ ingress_protocol }}
 
 #### Web site links
 
-[Manage Clusters](https://tanzuemea.tmc.cloud.vmware.com/clusters)
+[Create TKG Clusters](http://captainvirtualization.com/category/tkg/)
