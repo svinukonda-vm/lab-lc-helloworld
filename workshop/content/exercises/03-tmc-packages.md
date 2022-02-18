@@ -1,7 +1,7 @@
 In this section, lets see the procedure to push packages(catalog) from TMC cli and console. 
 
 ```dashboard:open-url
-https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-EF35646D-8762-41F1-95E5-D2F35ED71BA1.html
+url: https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-EF35646D-8762-41F1-95E5-D2F35ED71BA1.html
 ```
 #### Install cert-manager Package using TMC CLI: 
 
@@ -20,6 +20,8 @@ Name the Installed package name as : {{ session_namespace }}-certm and click NEX
 Leave to Default and click NEXT
 
 Install Package
+
+##### Verify the pods
 
 ```execute
 kubectl get pods -n cert-manager
@@ -56,13 +58,15 @@ Leave to Default and click NEXT
 
 Install Package
 
+Navigate to TMC console > Catalog > Installed > check if the package (cert-manager.tanzu.vmware.com) is succeeded and healthy
+
 ![TMC Cluster console](images/TMC-14.png) 
+
+##### Verify the envoy Load Balancer, this IP will be used later. 
 
 ```execute
 kubectl get svc -n tanzu-system-ingress --kubeconfig ~/.kube/config-tkg
 ```
-
-Navigate to TMC console > Catalog > Installed > check if the package (cert-manager.tanzu.vmware.com) is succeeded and healthy
 
 #### Install Harbor Package using TMC CLI: 
 
@@ -81,6 +85,7 @@ Name the Installed package name as : {{ session_namespace }}-harbor and click NE
 ```execute-1
 cat ~/harbor.yaml
 ```
+Copy the values from harbor.yaml and paste in TMC configure values page as shown below: 
 
 ![TMC harbor values](images/TMC-16.png)
 
@@ -88,11 +93,13 @@ Leave to Default and click NEXT
 
 Install Package
 
+##### Verify the pods, this might few mins to complete
+
 ```execute-1
 kubectl get pods -n tanzu-system-registry --kubeconfig ~/.kube/config-tkg
 ```
 
-### Node the Load Balancer IP and make an entry in your local machine /etc/hosts mapping the IP to {{ session_namespace }}.captainvirtualization.in
+##### Node the Load Balancer IP and make an entry in your local machine /etc/hosts mapping the IP to {{ session_namespace }}.captainvirtualization.in
 
 ```execute-1
 kubectl get svc -n tanzu-system-ingress --kubeconfig ~/.kube/config-tkg
@@ -107,4 +114,4 @@ https://{{ session_namespace }}.captainvirtualization.in/
 
 Enter the credentials: admin, Newstart@1
 
-![TMC Cluster console](images/TMC-18.png)
+![TMC Cluster console](images/TMC-20.png)
