@@ -106,7 +106,7 @@ kubectl get svc -n tanzu-system-ingress --kubeconfig ~/.kube/config-tkg
 ```
 
 ## Example: 
-![local host file entry example](images/TMC-17.png)
+![local host file entry example](images/TMC-21.png)
 
 ```dashboard:open-url
 https://{{ session_namespace }}.captainvirtualization.in/
