@@ -1,9 +1,15 @@
 
+![Application](images/TMC-26.png)
 
+![Application](images/TMC-27.png)
 
 kubectl get pods -n vmware-system-tmc --kubeconfig ~/.kube/config-tkg
 
 Deregister Management cluster from TMC console
+
+![Application](images/TMC-28.png)
+
+![Application](images/TMC-29.png)
 
 kubectl get pods -n vmware-system-tmc
 
