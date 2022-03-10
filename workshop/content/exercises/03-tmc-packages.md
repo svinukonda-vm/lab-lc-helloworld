@@ -120,3 +120,6 @@ Enter the credentials: admin, Newstart@1
 
 Navigate to TMC console > Catalog > select cluster {{ session_namespace }} from drop down and click on prom
 
+#### Install Graf Package using TMC Console: 
+
+Navigate to TMC console > Catalog > select cluster {{ session_namespace }} from drop down and click on graf
