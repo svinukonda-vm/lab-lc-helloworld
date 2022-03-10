@@ -3,15 +3,15 @@ kind: Workshop
 metadata:
   name: lab-lc-helloworld
 spec:
-  title: Hello from Eknath
+  title: Hello from Srini
   description: Workshop created to demo the workload creation in TKG
   vendor: eduk8s.io
   difficulty: beginner
   duration: 15m
-  url: https://github.com/Eknathreddy09/lab-lc-helloworld
+  url: https://github.com/svinukonda-vm/lab-lc-helloworld
   content:
-     files: github.com/Eknathreddy09/lab-lc-helloworld?ref=main
-     image: docker.io/eknath009/lcimagewithoutaz:newest
+     files: github.com/svinukonda-vm/lab-lc-helloworld?ref=main
+     image: docker.io/eknath009/workshop-module1:latest
   session:
     namespaces:
       budget: small
