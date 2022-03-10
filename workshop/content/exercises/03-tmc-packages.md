@@ -116,10 +116,32 @@ Enter the credentials: admin, Newstart@1
 
 ![TMC Cluster console](images/TMC-20.png)
 
-#### Install Prom Package using TMC Console: 
+#### Install prometheus Package using TMC Console: 
 
-Navigate to TMC console > Catalog > select cluster {{ session_namespace }} from drop down and click on prom
+Navigate to TMC console > Catalog > select cluster {{ session_namespace }} from drop down and click on prometheus
 
-#### Install Graf Package using TMC Console: 
+![TMC install package](images/TMC-6.png)
 
-Navigate to TMC console > Catalog > select cluster {{ session_namespace }} from drop down and click on graf
+Click on Install Package which can be found on top right side of the page
+
+![TMC install package](images/TMC-7.png)
+
+Name the Installed package name as : {{ session_namespace }}-prometheus and click NEXT
+
+![TMC install package](images/TMC-8.png)
+
+
+
+#### Install grafana Package using TMC Console: 
+
+Navigate to TMC console > Catalog > select cluster {{ session_namespace }} from drop down and click on grafana
+
+![TMC install package](images/TMC-6.png)
+
+Click on Install Package which can be found on top right side of the page
+
+![TMC install package](images/TMC-7.png)
+
+Name the Installed package name as : {{ session_namespace }}-grafana and click NEXT
+
+![TMC install package](images/TMC-8.png)
